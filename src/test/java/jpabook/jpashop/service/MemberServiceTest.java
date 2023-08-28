@@ -31,8 +31,10 @@ class MemberServiceTest {
         Long savedId = memberService.join(member);
 
         em.flush(); //insert 쿼리 나감
+
         //then
-//        Assertions.assertEquals(member, memberRepository.findOne(savedId));
+//        assertEquals(member, memberRepository.findOne(savedId));
+
         Assertions.assertThat(memberRepository.findOne(savedId)).isEqualTo(member);
     }
 
@@ -49,8 +51,11 @@ class MemberServiceTest {
         memberService.join(member1);
 
         //then
+//        assertThrows(IllegalStateException.class, () -> memberService.join(member2));
+
         Assertions.assertThatThrownBy(() -> memberService.join(member2))
                 .isInstanceOf(IllegalStateException.class);
+
     }
 
 }
