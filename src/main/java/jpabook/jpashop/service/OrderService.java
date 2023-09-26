@@ -66,6 +66,6 @@ public class OrderService {
      */
     //단순히 위임만 하기 때문에 Controller에서 Repository 바로 호출해도 괜찮다.
     public List<Order> findOrders(OrderSearch orderSearch) {
-        return orderRepository.findAllByString(orderSearch);
+        return orderRepository.findAll(orderSearch);
     }
 }
